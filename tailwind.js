@@ -768,7 +768,7 @@ module.exports = {
   */
 
   options: {
-    prefix: 'tailwind-',
+    prefix: 'tw-',
     important: false,
   },
 

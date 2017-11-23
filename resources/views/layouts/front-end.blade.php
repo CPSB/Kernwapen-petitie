@@ -12,7 +12,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-        <div class="container">
+        <div class="container" id="app">
             <div class="row">
                 <div class="col-md-offset-1 col-md-10 text-center" style="padding-top:50px;">
                     <h1><strong>Openbare verkoop van kernwapens.</strong></h1>
@@ -47,13 +47,7 @@
 
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade in active" id="home" style="margin-top:10px;">
-                                    <p>
-                                        test
-                                    </p>
-
-                                    <p>
-                                        crap
-                                    </p>
+                                     @yield('content')
                                 </div>
                             </div>
 
