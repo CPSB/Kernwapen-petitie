@@ -4,19 +4,21 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name') }}</title>
 
         {{-- Fonts --}}
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
         <div class="container" id="app">
             <div class="row">
-                <div class="col-md-offset-1 col-md-10 text-center" style="padding-top:50px;">
+                <div class="col-md-offset-1 col-md-10 text-center" style="padding-top:20px;">
                     <h1><strong>Openbare verkoop van kernwapens.</strong></h1>
-                    <img class="img-rounded tw-shadow-md" style="margin-top:10px; margin-bottom: 20px;" src="http://via.placeholder.com/450x315">
+                    <img class="img-rounded tw-shadow-md" style="width: 450px; height: 315px; margin-top:10px; margin-bottom: 20px;" src="{{ asset('img/ican.jpg') }}">
                     <h1 style="margin-bottom: 20px;"><strong>Petitie</strong></h1>
                 </div>
 
@@ -30,7 +32,9 @@
                                 </li>
                                 <li role="presentation"><a href="ondersteund.html">Ondersteund door</a></li>
                                 <li role="presentation"><a href="onderteken.html">Onderteken</a></li>
-                                <li role="presentation"><a href="contact.html">Contact</a></li>
+                                <li role="presentation" @if (Request::is('contact*')) class="active" @endif>
+                                    <a href="{{ route('contact.index') }}">Contact</a>
+                                </li>
                                 <li role="presentation"><a href="faq.html">FAQ</a></li>
                                 <li role="presentation" @if (Request::is('disclaimer*')) class="active" @endif>
                                     <a href="{{ route('disclaimer.index') }}">Disclaimer</a>

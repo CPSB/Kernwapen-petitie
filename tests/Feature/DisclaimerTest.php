@@ -10,7 +10,7 @@ class DisclaimerTest extends TestCase
     /**
      * @test
      * @testdox Test if the disclaimer is accessible.
-     * @covers \App\Http\Controllers\IndexController::index()
+     * @covers \App\Http\Controllers\DisclaimerController::index()
      */
     public function frontpage()
     {
