@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'IndexController@index')->name('/');
+Route::get('/disclaimer', 'DisclaimerController@index')->name('disclaimer.index');

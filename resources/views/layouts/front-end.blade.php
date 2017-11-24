@@ -30,7 +30,9 @@
                                 <li role="presentation"><a href="onderteken.html">Onderteken</a></li>
                                 <li role="presentation"><a href="contact.html">Contact</a></li>
                                 <li role="presentation"><a href="faq.html">FAQ</a></li>
-                                <li role="presentation"><a href="disclaimer.html">Disclaimer</a></li>
+                                <li role="presentation" @if (Request::is('disclaimer*')) class="active" @endif>
+                                    <a href="{{ route('disclaimer.index') }}">Disclaimer</a>
+                                </li>
 
                                 <li role="presentation">
                                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
