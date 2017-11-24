@@ -25,7 +25,9 @@
                         <div class="panel-body">
 
                             <ul class="nav nav-tabs" role="tablist"> <!-- Tab menu -->
-                                <li role="presentation" class="active"><a href="index.html">Uitleg</a></li>
+                                <li role="presentation" @if (Request::is('/*')) class="active" @endif>
+                                    <a href="{{ route('/') }}">Uitleg</a>
+                                </li>
                                 <li role="presentation"><a href="ondersteund.html">Ondersteund door</a></li>
                                 <li role="presentation"><a href="onderteken.html">Onderteken</a></li>
                                 <li role="presentation"><a href="contact.html">Contact</a></li>
