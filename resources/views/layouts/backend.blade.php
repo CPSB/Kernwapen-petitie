@@ -35,9 +35,27 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         @if (auth()->check()) {{-- User is authenticated. --}}
+                            <li @if (Request::is('users*')) class="active" @endif>
+                                <a href="">
+                                    <i class="fa fa-users"></i> Login beheer
+                                </a>
+                            </li>
+
                             <li @if (Request::is('faq*')) class="active" @endif>
                                 <a href="">
                                     <i class="fa fa-question-circle"></i> FAQ
+                                </a>
+                            </li>
+
+                            <li @if (Request::is('contact*')) class="active" @endif>
+                                <a href="">
+                                    <i class="fa fa-envelope"></i> Contact
+                                </a>
+                            </li>
+
+                            <li @if (Request::is('support*')) class="active" @endif>
+                                <a href="">
+                                    <i class="fa fa-list"></i> Organisaties
                                 </a>
                             </li>
                         @endif
