@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
+use App\Repositories\UserRepository; 
+use Illuminate\View\View;
 
 /**
  * AccountSettingsController
@@ -13,14 +15,19 @@ use Illuminate\Http\RedirectResponse;
  */
 class AccountSettingsController extends Controller
 {
+    private $usersRepository; /** @var UserRepository $usersRepository */
+
     /**
      * Account SettingsController
      *
+     * @param UserRepository $usersRepository Abstraction layer between controller and database. 
+     * 
      * @return void
      */
-    public function __constrcut()
+    public function __constrcut(UserRepository $usersRepository)
     {
         $this->middleware(['auth']);
+        $this->usersRepository = $usersRepository;
     }
 
     /**
@@ -42,6 +49,7 @@ class AccountSettingsController extends Controller
      *
      * @todo Register route
      * @todo Write phpunit test.
+     * @todo Fill in the validator
      *
      * @param InformationValidator $input The given user input (Validated).
      *
@@ -57,6 +65,7 @@ class AccountSettingsController extends Controller
      *
      * @todo Register route
      * @todo Write phpunit test.
+     * @todo Fill in the validator
      *
      * @param SecurityValidator $input The given user input. (Validated).
      *
