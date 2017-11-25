@@ -20,18 +20,18 @@ class AccountSettingsTest extends TestCase
     }
 
     /**
-     *
+     * @todo: Write docblock
      */
     public function accountSettingsIndexInformationParam()
     {
-        //
+        // TODO: Write out the test.
     }
 
     /**
-     *
+     * @todo: Write docblock
      */
     public function accountSettingsIndexSecurityParam()
     {
-        //
+        // TODO: Write out the test.
     }
 }
