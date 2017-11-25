@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\InformationValidator;
 use App\Http\Requests\SecurityValidator;
-use App\Repositories\UserRepository;
+use App\Repositories\UsersRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -17,16 +17,16 @@ use Illuminate\View\View;
  */
 class AccountSettingsController extends Controller
 {
-    private $usersRepository; /** @var UserRepository $usersRepository */
+    private $usersRepository; /** @var UsersRepository $usersRepository */
 
     /**
      * Account SettingsController
      *
-     * @param UserRepository $usersRepository Abstraction layer between controller and database.
+     * @param UsersRepository $usersRepository Abstraction layer between controller and database.
      *
      * @return void
      */
-    public function __constrcut(UserRepository $usersRepository)
+    public function __construct(UsersRepository $usersRepository)
     {
         $this->middleware(['auth']);
         $this->usersRepository = $usersRepository;
@@ -35,20 +35,18 @@ class AccountSettingsController extends Controller
     /**
      * Get the index controller for the account settings.
      *
-     * @todo Write test for the security and informatie param.
      * @todo Write the view.
      *
      * @return \Illuminate\View\View
      */
     public function index(): View
     {
-        return view('account.settings');
+        return view('auth.settings');
     }
 
     /**
      * Update the account information in thje storage.
      *
-     * @todo Register route
      * @todo Write phpunit test.
      * @todo Fill in the validator
      *
@@ -68,7 +66,6 @@ class AccountSettingsController extends Controller
     /**
      * Update the account security in the storage.
      *
-     * @todo Register route
      * @todo Write phpunit test.
      * @todo Fill in the validator
      *
@@ -76,7 +73,7 @@ class AccountSettingsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function updateSecurity(): RedirectResponse
+    public function updateSecurity(SecurityValidator $input): RedirectResponse
     {
         if ($this->usersRepository->update($input->except('_token'), auth()->user()->id)) {
             flash('Uw account beveiliging is aangepast.')->success();

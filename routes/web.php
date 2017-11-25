@@ -25,3 +25,5 @@ Route::post('/contact', 'ContactController@store')->name('contact.store');
 
 // Account setting routes
 Route::get('/settings/{type?}', 'AccountSettingsController@index')->name('account.settings');
+Route::post('/settings/update/information', 'AccountSettingsController@updateInformation')->name('account.settings.info');
+Route::post('/settings/update/security', 'AccountSettingsController@updateSecurity')->name('account.settings.sec');

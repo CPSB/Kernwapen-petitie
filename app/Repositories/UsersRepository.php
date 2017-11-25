@@ -10,7 +10,7 @@ use App\User;
  *
  * @package App\Repositories
  */
-class UserRepository extends Repository
+class UsersRepository extends Repository
 {
     /**
      * Set the eloquent model class for the repository.
