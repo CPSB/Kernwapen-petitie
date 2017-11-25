@@ -8,6 +8,13 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
+/**
+ * SupportController
+ *
+ * @package    \App\Http
+ * @subpackage Controllers
+ * @author     Tim Joosten <tim@activisme.be>
+ */
 class SupportController extends Controller
 {
     private $supportRepository;  /** @var SupportRepository $supportRepository */

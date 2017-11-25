@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\RedirectResponse;
 
+/**
+ * AccountSettingsController
+ *
+ * @package    \App\Http
+ * @subpackage Controllers
+ * @author     Tim Joosten <tim@activisme.be>
+ */
 class AccountSettingsController extends Controller
 {
     /**

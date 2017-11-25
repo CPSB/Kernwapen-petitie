@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\View\View;
 
 /**
- * Class DisclaimerController.
+ * DisclaimerController
+ *
+ * @package    \App\Http
+ * @subpackage Controllers
+ * @author     Tim Joosten <tim@activisme.be>
  */
 class DisclaimerController extends Controller
 {

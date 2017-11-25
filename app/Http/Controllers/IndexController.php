@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\View\View;
 
 /**
- * @todo Implement docblock
+ * IndexController
+ *
+ * @package    \App\Http
+ * @subpackage Controllers
+ * @author     Tim Joosten <tim@activisme.be>
  */
 class IndexController extends Controller
 {

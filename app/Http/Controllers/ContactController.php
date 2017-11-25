@@ -8,7 +8,11 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 /**
- * @todo docblock
+ * ContactController
+ *
+ * @package    \App\Http
+ * @subpackage Controllers
+ * @author     Tim Joosten <tim@activisme.be>
  */
 class ContactController extends Controller
 {

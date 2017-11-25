@@ -5,7 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\View\View;
 
 /**
- * @todo: docblock
+ * HomeController
+ *
+ * @package    \App\Http
+ * @subpackage Controllers
+ * @author     Tim Joosten <tim@activisme.be>
  */
 class HomeController extends Controller
 {
