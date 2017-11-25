@@ -2,9 +2,8 @@
 
 namespace App\Repositories;
 
-use App\User;
-use ActivismeBE\DatabaseLayering\Repositories\Contracts\RepositoryInterface;
 use ActivismeBE\DatabaseLayering\Repositories\Eloquent\Repository;
+use App\User;
 
 /**
  * Class UserRepository

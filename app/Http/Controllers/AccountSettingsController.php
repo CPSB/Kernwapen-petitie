@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\UserRepository;
 use Illuminate\Http\RedirectResponse;
-use App\Repositories\UserRepository; 
 use Illuminate\View\View;
 
 /**
@@ -20,8 +20,8 @@ class AccountSettingsController extends Controller
     /**
      * Account SettingsController
      *
-     * @param UserRepository $usersRepository Abstraction layer between controller and database. 
-     * 
+     * @param UserRepository $usersRepository Abstraction layer between controller and database.
+     *
      * @return void
      */
     public function __constrcut(UserRepository $usersRepository)
