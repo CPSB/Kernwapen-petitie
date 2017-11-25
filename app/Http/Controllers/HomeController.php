@@ -25,7 +25,7 @@ class HomeController extends Controller
      * Show the application dashboard.
      *
      * @todo write phpunit test.
-     * 
+     *
      * @return \Illuminate\View\View;
      */
     public function index(): View
