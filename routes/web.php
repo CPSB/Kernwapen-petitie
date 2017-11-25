@@ -22,3 +22,6 @@ Route::get('/disclaimer', 'DisclaimerController@index')->name('disclaimer.index'
 // Contact routes
 Route::get('/contact', 'ContactController@index')->name('contact.index');
 Route::post('/contact', 'ContactController@store')->name('contact.store');
+
+// Account setting routes
+Route::get('/settings/{type?}', 'AccountSettingsController@index')->name('account.settings');

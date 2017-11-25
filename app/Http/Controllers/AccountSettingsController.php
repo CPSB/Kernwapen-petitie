@@ -35,8 +35,7 @@ class AccountSettingsController extends Controller
     /**
      * Get the index controller for the account settings.
      *
-     * @todo Register route
-     * @todo Write test
+     * @todo Write test for the security and informatie param.
      * @todo Write the view.
      *
      * @return \Illuminate\View\View
