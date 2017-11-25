@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\InformationValidator;
+use App\Http\Requests\SecurityValidator;
 use App\Repositories\UserRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -55,9 +57,13 @@ class AccountSettingsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function updateInformation(): RedirectResponse
+    public function updateInformation(InformationValidator $input): RedirectResponse
     {
-        //
+        if ($this->usersRepository->update($input->except('_token'), auth()->user()->id)) {
+            flash("Uw account informatie is aangepast.")->success();
+        }
+
+        return redirect()->route('account.settings', ['type' => 'information']);
     }
 
     /**
@@ -73,6 +79,10 @@ class AccountSettingsController extends Controller
      */
     public function updateSecurity(): RedirectResponse
     {
-        //
+        if ($this->usersRepository->update($input->except('_token'), auth()->user()->id)) {
+            flash('Uw account beveiliging is aangepast.')->success();
+        }
+
+        return redirect()->route('account.settings', ['type' => 'security']);
     }
 }
