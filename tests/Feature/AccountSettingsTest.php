@@ -20,18 +20,24 @@ class AccountSettingsTest extends TestCase
     }
 
     /**
-     * @todo: Write docblock
+     * @test
+     * @textdox Test if the account settings page is ok with the Information param
+     * @covers  \App\Http\Controllers\AccountSettingsController::index()
      */
     public function accountSettingsIndexInformationParam()
     {
-        // TODO: Write out the test.
+        $this->get(route('account.settings', ['type' => 'information']))
+            ->assertStatus(200);
     }
 
     /**
-     * @todo: Write docblock
+     * @test
+     * @testdox Test if the account settings page is ok with the Seucrity param
+     * @covers  \App\Http\Controllers\AccountSettingsController::index
      */
     public function accountSettingsIndexSecurityParam()
     {
-        // TODO: Write out the test.
+        $this->get(route('account.settings', ['type' => 'security']))
+            ->assertStatus(200);
     }
 }
