@@ -4,18 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContactsTable extends Migration
+class CreateSupportsTable extends Migration
 {
     /**
      * Run the migrations.
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('supports', function (Blueprint $table) {
             $table->increments('id');
-            $table->name('name');
-            $table->string('subject');
-            $table->text('message');
             $table->timestamps();
         });
     }
@@ -25,6 +22,6 @@ class CreateContactsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contacts');
+        Schema::dropIfExists('supports');
     }
 }

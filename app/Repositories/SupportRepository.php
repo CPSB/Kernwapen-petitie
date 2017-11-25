@@ -3,12 +3,12 @@
 namespace App\Repositories;
 
 use ActivismeBE\DatabaseLayering\Repositories\Eloquent\Repository;
-use App\Contact;
+use Supportspace\Support;
 
 /**
- * Class ContactRepository.
+ * Class SupportRepository.
  */
-class ContactRepository extends Repository
+class SupportRepository extends Repository
 {
     /**
      * Set the eloquent model class for the repository.
@@ -17,6 +17,6 @@ class ContactRepository extends Repository
      */
     public function model()
     {
-        return Contact::class;
+        return Support::class;
     }
 }
