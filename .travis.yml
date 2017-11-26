@@ -12,7 +12,7 @@ before_script:
     - cp .env.example .env
     - echo "APP_KEY=SmduSUaF1KAAwhRIP6yLHgw0KzebWC6Z" >> .env
     - echo "DB_CONNECTION=sqlite" >> .env
-    - touch database/homestead.sqlite
+    - touch database/testing.sqlite
     - travis_retry composer self-update
     - travis_retry composer install --no-interaction --prefer-source --dev
     - php artisan key:generate
