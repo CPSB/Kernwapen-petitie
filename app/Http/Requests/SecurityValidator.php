@@ -13,7 +13,7 @@ class SecurityValidator extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->check();
     }
 
     /**
@@ -23,8 +23,6 @@ class SecurityValidator extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
-        ];
+        return ['password' => 'required|string|min:6|confirmed'];
     }
 }
