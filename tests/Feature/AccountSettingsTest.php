@@ -125,7 +125,7 @@ class AccountSettingsTest extends TestCase
      */
     public function accountUpdateSecurityValidationErrors()
     {
-        $user = factory(User::class)->create(); 
+        $user = factory(User::class)->create();
 
         $this->actingAs($user)
             ->assertAuthenticatedAs($user)

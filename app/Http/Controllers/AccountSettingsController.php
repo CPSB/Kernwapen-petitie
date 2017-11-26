@@ -41,7 +41,9 @@ class AccountSettingsController extends Controller
      */
     public function index(): View
     {
-        return view('auth.settings');
+        return view('auth.settings', [
+            'user' => $this->usersRepository->find(auth()->user()->id, ['name', 'email'])
+        ]);
     }
 
     /**
@@ -62,9 +64,6 @@ class AccountSettingsController extends Controller
 
     /**
      * Update the account security in the storage.
-     *
-     * @todo Write phpunit test.
-     * @todo Fill in the validator
      *
      * @param SecurityValidator $input The given user input. (Validated).
      *
