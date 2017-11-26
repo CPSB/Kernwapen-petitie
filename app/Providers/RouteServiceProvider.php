@@ -37,7 +37,6 @@ class RouteServiceProvider extends ServiceProvider
     /**
      * Define "auth" routes for the application.
      *
-     *
      * These routes all recieve session state, CSRF protection, etc.
      */
     protected function mapAuthRoutes()
