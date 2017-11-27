@@ -1,14 +1,16 @@
-<?php
+<?php 
 
 namespace App\Repositories;
 
 use ActivismeBE\DatabaseLayering\Repositories\Eloquent\Repository;
-use App\Support;
+use App\Signature;
 
 /**
- * Class SupportRepository.
+ * Class SignatureRepository
+ *
+ * @package App\Repositories
  */
-class SupportRepository extends Repository
+class SignatureRepository extends Repository
 {
     /**
      * Set the eloquent model class for the repository.
@@ -17,6 +19,6 @@ class SupportRepository extends Repository
      */
     public function model()
     {
-        return Support::class;
+        return Signature::class;
     }
 }
