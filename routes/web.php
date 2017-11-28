@@ -29,6 +29,12 @@ Route::get('/sign', 'SignatureController@create')->name('signature.create');
 // Support routes 
 Route::get('support', 'SupportController@index')->name('support.index');
 
+// User Routes
+Route::get('/users/edit/{id}', 'UsersController@edit')->name('users.edit');
+Route::get('/users/delete/{id}', 'UsersController@destroy')->name('users.delete');
+Route::get('/users/create', 'UsersController@create')->name('users.create');
+Route::post('/users/update/{id}', 'UsersController@update')->name('users.update');
+
 // Account setting routes
 Route::get('/settings/{type?}', 'AccountSettingsController@index')->name('account.settings');
 Route::post('/settings/update/information', 'AccountSettingsController@updateInformation')->name('account.settings.info');
