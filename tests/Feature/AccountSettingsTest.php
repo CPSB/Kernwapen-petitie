@@ -23,7 +23,6 @@ class AccountSettingsTest extends TestCase
      */
     public function AccountSettingsUnAuthenticated()
     {
-        auth()->logout(); // Be sure that no user is authenticated.
         $this->get(route('account.settings'))->assertRedirect(route('login'));
     }
 
