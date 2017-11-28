@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Contact extends Model
 {
-    /** 
-     * Mass-assign fields for the database table. 
-     * 
+    /**
+     * Mass-assign fields for the database table.
+     *
      * @var array
      */
     protected $fillable = ['name', 'email', 'subject', 'message'];

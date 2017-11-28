@@ -88,7 +88,7 @@ class SupportController extends Controller
      *
      * @todo   Write phpunit test
      * @todo   Register route
-     * 
+     *
      * @param SupportValidator $input   The user given input. (validated)
      * @param int              $support The unique identifier in the storage
      *
@@ -110,7 +110,7 @@ class SupportController extends Controller
      *
      * @todo write phpunit test
      * @todo register route
-     * 
+     *
      * @param int $support the unique identifier in the storage
      *
      * @return \Illuminate\Http\RedirectResponse

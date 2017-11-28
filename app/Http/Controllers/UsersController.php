@@ -115,7 +115,7 @@ class UsersController extends Controller
     {
         $user = $this->usersRepository->find($user) ?: abort(Response::HTTP_NOT_FOUND);
 
-        if ($user->update($input->except('_token')) {
+        if ($user->update($input->except('_token'))) {
             flash("{$user->name} is aangepast in het systeem.")->success();
         }
 
