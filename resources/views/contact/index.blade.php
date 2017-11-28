@@ -1,8 +1,7 @@
 @extends('layouts.front-end')
 
 @section('content')
-    <div class="tw-bg-blue-lightest tw-border tw-border-blue-light tw-text-blue-dark tw-px-4 tw-py-3 tw-rounded tw-relative"
-         role="alert">
+    <div class="tw-bg-blue-lightest tw-border tw-border-blue-light tw-text-blue-dark tw-px-4 tw-py-3 tw-rounded tw-relative" role="alert">
         <strong class="tw-font-bold">
             <i class="fa fa-fw fa-info-circle"></i>
         </strong>

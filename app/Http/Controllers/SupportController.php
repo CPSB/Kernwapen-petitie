@@ -26,7 +26,7 @@ class SupportController extends Controller
      */
     public function __construct(SupportRepository $supportRepository)
     {
-        $this->middleware(['auth']);
+        $this->middleware(['auth'])->except(['index']);
         $this->supportRepository = $supportRepository;
     }
 
@@ -69,7 +69,8 @@ class SupportController extends Controller
     /**
      * Edit view for an organisation or person support.
      *
-     * @todo   Write phpunit test
+     * @todo Write phpunit test
+     * @todo Register route
      *
      * @param int $support the unique identifier in the storage
      *
@@ -86,7 +87,8 @@ class SupportController extends Controller
      * Update some organisation or person in the storage.
      *
      * @todo   Write phpunit test
-     *
+     * @todo   Register route
+     * 
      * @param SupportValidator $input   The user given input. (validated)
      * @param int              $support The unique identifier in the storage
      *
@@ -106,8 +108,9 @@ class SupportController extends Controller
     /**
      * Delete the support in the storage.
      *
-     * @todo:  write phpunit test
-     *
+     * @todo write phpunit test
+     * @todo register route
+     * 
      * @param int $support the unique identifier in the storage
      *
      * @return \Illuminate\Http\RedirectResponse

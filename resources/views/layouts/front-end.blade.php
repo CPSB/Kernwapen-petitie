@@ -30,12 +30,21 @@
                                 <li role="presentation" @if (Request::is('/*')) class="active" @endif>
                                     <a href="{{ route('/') }}">Uitleg</a>
                                 </li>
-                                <li role="presentation"><a href="ondersteund.html">Ondersteund door</a></li>
-                                <li role="presentation"><a href="onderteken.html">Onderteken</a></li>
+                                <li role="presentation" @if (Request::is('sign*')) class="active" @endif>
+                                    <a href="{{ route('signature.create') }}">Onderteken</a>
+                                </li>
+                                <li role="presentation">
+                                    <a href="">Nieuws</a>
+                                </li>
+                                <li role="presentation" @if (Request::is('support*')) class="active" @endif>
+                                    <a href="{{ route('support.index') }}">Ondersteuning</a>
+                                </li>
                                 <li role="presentation" @if (Request::is('contact*')) class="active" @endif>
                                     <a href="{{ route('contact.index') }}">Contact</a>
                                 </li>
-                                <li role="presentation"><a href="faq.html">FAQ</a></li>
+                                <li role="presentation">
+                                    <a href="faq.html">FAQ</a>
+                                </li>
                                 <li role="presentation" @if (Request::is('disclaimer*')) class="active" @endif>
                                     <a href="{{ route('disclaimer.index') }}">Disclaimer</a>
                                 </li>
