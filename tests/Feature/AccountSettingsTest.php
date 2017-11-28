@@ -17,7 +17,9 @@ class AccountSettingsTest extends TestCase
     /**
      * @test
      * @testdox Test if some unauthenticated user can access the index page
+     *
      * @covers  \App\Http\Controllers\AccountSettingsController::index()
+     * @covers  \App\Http\Controllers\AccountSettingsController::__construct()
      */
     public function AccountSettingsUnAuthenticated()
     {
@@ -28,7 +30,9 @@ class AccountSettingsTest extends TestCase
     /**
      * @test
      * @testdox Test if the account settings page is ok.
+     *
      * @covers  \App\Http\Controllers\AccountSettingsController::index()
+     * @covers  \App\Http\Controllers\AccountSettingsController::__construct()
      */
     public function accountSettingsIndexNoParam()
     {
@@ -41,7 +45,9 @@ class AccountSettingsTest extends TestCase
     /**
      * @test
      * @textdox Test if the account settings page is ok with the Information param
+     *
      * @covers  \App\Http\Controllers\AccountSettingsController::index()
+     * @covers  \App\Http\Controllers\AccountSettingsController::__construct()
      */
     public function accountSettingsIndexInformationParam()
     {
@@ -54,7 +60,9 @@ class AccountSettingsTest extends TestCase
     /**
      * @test
      * @testdox Test if the account settings page is ok with the Seucrity param
+     *
      * @covers  \App\Http\Controllers\AccountSettingsController::index
+     * @covers  \App\Http\Controllers\AccountSettingsController::__construct()
      */
     public function accountSettingsIndexSecurityParam()
     {
@@ -67,6 +75,8 @@ class AccountSettingsTest extends TestCase
     /**
      * @test
      * @testdox Test if an unauthenticated user can update account information.
+     *
+     * @covers  \App\Http\Controllers\AccountSettingsController::__construct()
      * @covers  \App\Http\Controllers\AccountSettingsController::updateInformation()
      */
     public function accountUpdateInformationUnauthenticated()
@@ -77,7 +87,9 @@ class AccountSettingsTest extends TestCase
     /**
      * @test
      * @testdox Test if the validation are returned from the information update controller.
+     *
      * @covers  \App\Http\Controllers\AccountSettingsController::updateInformation()
+     * @covers  \App\Http\Controllers\AccountSettingsController::__construct()
      */
     public function accountUpdateInformationValidationErrors()
     {
@@ -93,7 +105,9 @@ class AccountSettingsTest extends TestCase
     /**
      * @test
      * @testdox Test if the user information can be successful changed in the storage
+     *
      * @covers  \App\Http\Controllers\AccountSettingsController::updateInformation()
+     * @covers  \App\Http\Controllers\AccountSettingsController::__construct()
      */
     public function accountUpdateInformationNoErrors()
     {
@@ -111,7 +125,9 @@ class AccountSettingsTest extends TestCase
     /**
      * @test
      * @testdox Test if an authenticated user can access the account security update route.
+     *
      * @covers  \App\Http\Controllers\AccountSettingsController::updateSecurity()
+     * @covers  \App\Http\Controllers\AccountSettingsController::__construct()
      */
     public function accountUpdateSecurityUnauthenticated()
     {
@@ -121,6 +137,8 @@ class AccountSettingsTest extends TestCase
     /**
      * @test
      * @testdox Test if the validation return from the account security update controller.
+     *
+     * @covers  \App\Http\Controllers\AccountSettingsController::__construct()
      * @covers  \App\Http\Controllers\AccountSettingsController::updateSecurity()
      */
     public function accountUpdateSecurityValidationErrors()
@@ -137,6 +155,8 @@ class AccountSettingsTest extends TestCase
     /**
      * @test
      * @testdox Test if the currently authenticated user can change his account security
+     *
+     * @covers  \App\Http\Controllers\AccountSettingsController::__construct()
      * @covers  \App\Http\Controllers\AccountSettingsController::updateSecurity()
      */
     public function accountUpdateSecurityNoErrors()
