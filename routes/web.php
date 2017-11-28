@@ -21,10 +21,10 @@ Route::get('/disclaimer', 'DisclaimerController@index')->name('disclaimer.index'
 Route::get('/contact', 'ContactController@index')->name('contact.index');
 Route::post('/contact', 'ContactController@store')->name('contact.store');
 
-// Signature routes 
+// Signature routes
 Route::get('/sign', 'SignatureController@create')->name('signature.create');
 
-// Support routes 
+// Support routes
 Route::get('support', 'SupportController@index')->name('support.index');
 
 // User Routes

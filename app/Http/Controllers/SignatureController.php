@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\SignatureRepository;
-use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 /**
  * SignatureController
@@ -21,7 +21,7 @@ class SignatureController extends Controller
      * SignatureController constructor
      *
      * @param  SignatureRepository $signatureRepository The abstraction layer between database and controller.
-     * 
+     *
      * @return void
      */
     public function __construct(SignatureRepository $signatureRepository)
@@ -31,15 +31,15 @@ class SignatureController extends Controller
     }
 
     /**
-     * Get the adminstrator index for the signatures. 
+     * Get the adminstrator index for the signatures.
      *
      * @todo Create view
-     * @todo Write phpunit test 
+     * @todo Write phpunit test
      * @todo Register route
-     * 
+     *
      * @return \Illuminate\View\View
      */
-    public function index(): View 
+    public function index(): View
     {
         return view('signatures.index', ['signatures' => $this->signatureRepository->paginate(40)]);
     }
@@ -59,7 +59,7 @@ class SignatureController extends Controller
 
     /**
      * @todo: Implement api route. Because this is an referendum performed by a collective of organizations.
-     *        So they also need an api interface to insert signatures in the database. 
+     *        So they also need an api interface to insert signatures in the database.
      */
 
     /**
@@ -70,7 +70,7 @@ class SignatureController extends Controller
      * @todo Register routes
      *
      * @param  SignatureValidator   $input  The user given input. (Validated)
-     * 
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(SignatureValidator $input): RedirectResponse
