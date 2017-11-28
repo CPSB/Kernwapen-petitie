@@ -7,6 +7,13 @@ use Illuminate\Foundation\Http\FormRequest;
 class InformationValidator extends FormRequest
 {
     /**
+     * Redirect route when errors occur.
+     *
+     * @var string
+     */
+    protected $redirectRoute = 'account.settings';
+
+    /**
      * Determine if the user is authorized to make this request.
      *
      * @return bool
@@ -27,5 +34,18 @@ class InformationValidator extends FormRequest
             'name'     => 'required|string|max:255',
             'email'    => 'required|string|email|max:255',
         ];
+    }
+
+    /**
+     * Get the URL to redirect to on a validation error.
+     *
+     * @return string
+     */
+    protected function getRedirectUrl()
+    {
+        return $this->redirector->getUrlGenerator()->route(
+            $this->redirectRoute,
+            ['type' => 'information']
+        );
     }
 }

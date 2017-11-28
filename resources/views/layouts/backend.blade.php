@@ -75,7 +75,7 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('account.settings') }}">
+                                        <a href="{{ route('account.settings', ['type' => 'information']) }}">
                                             <i class="fa fa-fw fa-cogs"></i> Account configuratie
                                         </a>
                                     </li>
