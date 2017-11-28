@@ -125,6 +125,13 @@ class AccountSettingsTest extends TestCase
      */
     public function accountUpdateSecurityValidationErrors()
     {
+        $user = factory(User::class)->create();
+
+        $this->actingAs($user)
+            ->assertAuthenticatedAs($user)
+            ->post(route('account.settings.sec'), [])
+            ->assertStatus(302)
+            ->assertSessionHasErrors();
     }
 
     /**
@@ -134,5 +141,16 @@ class AccountSettingsTest extends TestCase
      */
     public function accountUpdateSecurityNoErrors()
     {
+        $user = factory(User::class)->create();
+        $input = ['password' => 'new password', 'password_confirmation' => 'new password'];
+
+        $this->actingAs($user)
+            ->assertAuthenticatedAs($user)
+            ->post(route('account.settings.sec'), $input)
+            ->assertStatus(302)
+            ->assertSessionHas([
+                'flash_notification.0.message'  => "Uw account beveiliging is aangepast.",
+                'flash_notification.0.level'    => 'success'
+            ]);
     }
 }

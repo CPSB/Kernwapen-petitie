@@ -10,8 +10,6 @@
  * contains the "web" middleware group. Now create something great!
  */
 
-Auth::routes();
-
 // Index routes
 Route::get('/', 'IndexController@index')->name('/');        // Frontend
 Route::get('/home', 'HomeController@index')->name('home');  // Backend

@@ -41,14 +41,13 @@ class AccountSettingsController extends Controller
      */
     public function index(): View
     {
-        return view('auth.settings');
+        return view('auth.settings', [
+            'user' => $this->usersRepository->find(auth()->user()->id, ['name', 'email'])
+        ]);
     }
 
     /**
-     * Update the account information in thje storage.
-     *
-     * @todo Write phpunit test.
-     * @todo Fill in the validator
+     * Update the account information in the storage.
      *
      * @param InformationValidator $input The given user input (Validated).
      *
@@ -66,16 +65,15 @@ class AccountSettingsController extends Controller
     /**
      * Update the account security in the storage.
      *
-     * @todo Write phpunit test.
-     * @todo Fill in the validator
-     *
      * @param SecurityValidator $input The given user input. (Validated).
      *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function updateSecurity(SecurityValidator $input): RedirectResponse
     {
-        if ($this->usersRepository->update($input->except('_token'), auth()->user()->id)) {
+        $password = bcrypt($input->password);
+
+        if ($this->usersRepository->update(['password' => $password], auth()->user()->id)) {
             flash('Uw account beveiliging is aangepast.')->success();
         }
 
