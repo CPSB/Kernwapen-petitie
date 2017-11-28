@@ -28,9 +28,11 @@ Route::get('/sign', 'SignatureController@create')->name('signature.create');
 Route::get('support', 'SupportController@index')->name('support.index');
 
 // User Routes
+Route::get('/users/index', 'UsersController@index')->name('users.index');
 Route::get('/users/edit/{id}', 'UsersController@edit')->name('users.edit');
 Route::get('/users/delete/{id}', 'UsersController@destroy')->name('users.delete');
 Route::get('/users/create', 'UsersController@create')->name('users.create');
+Route::post('/users/store', 'UsersController@store')->name('users.store');
 Route::post('/users/update/{id}', 'UsersController@update')->name('users.update');
 
 // Account setting routes

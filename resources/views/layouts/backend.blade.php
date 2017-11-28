@@ -36,7 +36,7 @@
                     <ul class="nav navbar-nav">
                         @if (auth()->check()) {{-- User is authenticated. --}}
                             <li @if (Request::is('users*')) class="active" @endif>
-                                <a href="">
+                                <a href="{{ route('users.index') }}">
                                     <i class="fa fa-users"></i> Login beheer
                                 </a>
                             </li>

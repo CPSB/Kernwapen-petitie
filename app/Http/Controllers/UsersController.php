@@ -36,7 +36,6 @@ class UsersController extends Controller
     /**
      * Display the user index for the application. 
      *
-     * @todo Register route 
      * @todo write phpunit test 
      * @todo build up the view.
      * 
@@ -44,7 +43,7 @@ class UsersController extends Controller
      */
     public function index(): View 
     {
-        //
+        return view('users.index', ['users' => $this->usersRepository->paginate(20)]);
     }
 
     /**
@@ -53,13 +52,12 @@ class UsersController extends Controller
      * @todo implement controller logic. 
      * @todo build up the view. 
      * @todo Write the phpunit test 
-     * @todo Register the route
      * 
      * @return \Illuminate\View\View
      */
     public function create(): View
     {
-        //
+        return view('users.create');
     }
 
     /**

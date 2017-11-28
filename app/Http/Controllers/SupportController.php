@@ -45,6 +45,9 @@ class SupportController extends Controller
     /**
      * Create view for support organisation or person.
      *
+     * @todo register the route
+     * @todo write phpunit test
+     * 
      * @return \Illuminate\View\View
      */
     public function create()
@@ -55,6 +58,7 @@ class SupportController extends Controller
     /**
      * Create some support organisation or person in the storage;.
      *
+     * @todo    Register route
      * @todo    Write phpunit test.
      *
      * @param SupportValidator $support The user given input. (Validated).''

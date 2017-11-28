@@ -168,4 +168,64 @@ class UsersTest extends TestCase
     {
         //
     }
+
+    /**
+     * @test 
+     * @testdox Test the error response if an unauthenticated user tries to access the create page
+     * @covers  \App\Http\Controllers\UsersController::create() 
+     */
+    public function usersCreateViewUnAuthenticated()
+    {
+        //
+    }
+
+    /**
+     * @test 
+     * @testox  Test the error response when a user with wrong permissions try to access the page. 
+     * @covers  \App\Http\Controllers\UsersController::create()
+     */
+    public function usersCreateViewWrongPermissions() 
+    {
+        //
+    }
+
+    /**
+     * @test 
+     * @testdox Test the users create view.
+     * @covers  \App\Http\Controllers\UsersController::create()
+     */
+    public function usersCreateViewOk() 
+    {
+        //
+    }
+
+    /**
+     * @test 
+     * @testdox Test the error when some unauthenticated visitor try to access the users index page.
+     * @covers  \App\Http\Controllers\UsersController::index()
+     */
+    public function usersIndexUnAuthenticated() 
+    {
+        //
+    }
+
+    /**
+     * @test 
+     * @testdox Test the error that is throwed when the user has the wrong permissions
+     * @covers  \App\Http\Controllers\UsersController::index() 
+     */
+    public function usersIndexWrongPermissions()
+    {
+        //
+    }
+
+    /**
+     * @test 
+     * @testdox Test the status from the users index page with all the needed permissions
+     * @covers  \App\Http\Controllers\UsersController::index()
+     */
+    public function usersIndexOk() 
+    {
+        //
+    }
 }
