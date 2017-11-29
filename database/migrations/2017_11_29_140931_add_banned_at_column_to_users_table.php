@@ -13,7 +13,7 @@ class AddBannedAtColumnToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->timestamp('banned_at')->nullable();
         });
     }
