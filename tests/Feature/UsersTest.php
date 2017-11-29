@@ -170,9 +170,9 @@ class UsersTest extends TestCase
     }
 
     /**
-     * @test 
+     * @test
      * @testdox Test the error response if an unauthenticated user tries to access the create page
-     * @covers  \App\Http\Controllers\UsersController::create() 
+     * @covers  \App\Http\Controllers\UsersController::create()
      */
     public function usersCreateViewUnAuthenticated()
     {
@@ -180,39 +180,39 @@ class UsersTest extends TestCase
     }
 
     /**
-     * @test 
-     * @testox  Test the error response when a user with wrong permissions try to access the page. 
+     * @test
+     * @testox  Test the error response when a user with wrong permissions try to access the page.
      * @covers  \App\Http\Controllers\UsersController::create()
      */
-    public function usersCreateViewWrongPermissions() 
+    public function usersCreateViewWrongPermissions()
     {
         //
     }
 
     /**
-     * @test 
+     * @test
      * @testdox Test the users create view.
      * @covers  \App\Http\Controllers\UsersController::create()
      */
-    public function usersCreateViewOk() 
+    public function usersCreateViewOk()
     {
         //
     }
 
     /**
-     * @test 
+     * @test
      * @testdox Test the error when some unauthenticated visitor try to access the users index page.
      * @covers  \App\Http\Controllers\UsersController::index()
      */
-    public function usersIndexUnAuthenticated() 
+    public function usersIndexUnAuthenticated()
     {
         //
     }
 
     /**
-     * @test 
+     * @test
      * @testdox Test the error that is throwed when the user has the wrong permissions
-     * @covers  \App\Http\Controllers\UsersController::index() 
+     * @covers  \App\Http\Controllers\UsersController::index()
      */
     public function usersIndexWrongPermissions()
     {
@@ -220,11 +220,11 @@ class UsersTest extends TestCase
     }
 
     /**
-     * @test 
+     * @test
      * @testdox Test the status from the users index page with all the needed permissions
      * @covers  \App\Http\Controllers\UsersController::index()
      */
-    public function usersIndexOk() 
+    public function usersIndexOk()
     {
         //
     }
