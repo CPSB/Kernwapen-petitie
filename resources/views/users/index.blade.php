@@ -48,6 +48,20 @@
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ $user->created_at->diffForHumans() }}</td>
+
+                                                <td class="text-center"> {{-- Options --}}
+                                                    <a href="" class="text-muted">
+                                                        <i class="fa fa-fw fa-pencil"></i>
+                                                    </a>
+
+                                                    <a href="" class="text-muted">
+                                                        <i class="fa fa-fw fa-ban"></i>
+                                                    </a>
+
+                                                    <a href="" class="text-muted">
+                                                        <i class="fa fa-fw fa-close"></i>
+                                                    </a>
+                                                </td> {{-- /Options --}}
                                             </tr>
                                         @endforeach {{-- END loop --}}
                                     @endif
