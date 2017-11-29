@@ -18,7 +18,7 @@ use Illuminate\Http\Response;
  */
 class UsersController extends Controller
 {
-    private $usersController; /** @var UsersRepository $usersRepository */
+    private $usersRepository; /** @var UsersRepository $usersRepository */
 
     /**
      * UsersController constructor
