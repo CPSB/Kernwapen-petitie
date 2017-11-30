@@ -122,7 +122,7 @@ class UsersController extends Controller
      *
      * @todo implement activity monitor.
      *
-     * @param int $user The uniqie identifier in the storage.
+     * @param int $user The unique identifier in the storage.
      *
      * @return \Illuminate\Http\RedirectResponse
      */
