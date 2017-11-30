@@ -12,7 +12,7 @@ use ActivismeBE\DatabaseLayering\Repositories\Eloquent\Repository;
  * @package App\Repositories
  */
 class FaqRepository extends Repository
-{§
+{
     /**
      * Set the eloquent model class for the repository.
      *
