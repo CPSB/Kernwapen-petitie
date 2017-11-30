@@ -2,6 +2,8 @@
 
 namespace Tests\Feature;
 
+use App\Role;
+use App\User;
 use Tests\TestCase;
 
 /**
@@ -206,7 +208,9 @@ class UsersTest extends TestCase
      */
     public function usersIndexUnAuthenticated()
     {
-        //
+        $this->get(route('users.index'))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
     }
 
     /**
@@ -216,7 +220,15 @@ class UsersTest extends TestCase
      */
     public function usersIndexWrongPermissions()
     {
-        //
+        factory(Role::class)->create(['name' => 'user']);
+
+        $user = factory(User::class)->create();
+        $user->assignRole('user');
+
+        $this->actingAs($user)
+            ->assertAuthenticatedAs($user)
+            ->get(route('users.index'))
+            ->assertStatus(403);
     }
 
     /**
@@ -226,6 +238,14 @@ class UsersTest extends TestCase
      */
     public function usersIndexOk()
     {
-        //
+        factory(Role::class)->create(['name' => 'admin']);
+
+        $user = factory(User::class)->create();
+        $user->assignRole('admin');
+
+        $this->actingAs($user)
+            ->assertAuthenticatedAs($user)
+            ->get(route('users.index'))
+            ->assertStatus(200);
     }
 }

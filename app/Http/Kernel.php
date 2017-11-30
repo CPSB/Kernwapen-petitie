@@ -46,8 +46,6 @@ class Kernel extends HttpKernel
     /**
      * The application's route middleware.
      *
-     * @todo implement role middleware
-     * @todo implement permission middleware
      * @todo implement forbid banned user middleware
      *
      * These middleware may be assigned to groups or used individually.
@@ -61,5 +59,7 @@ class Kernel extends HttpKernel
         'can'        => \Illuminate\Auth\Middleware\Authorize::class,
         'guest'      => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle'   => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'role'       => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+        'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
     ];
 }

@@ -29,15 +29,12 @@ class UsersController extends Controller
      */
     public function __construct(UsersRepository $usersRepository)
     {
-        $this->middleware(['auth']);
+        $this->middleware(['auth', 'role:admin']);
         $this->usersRepository = $usersRepository;
     }
 
     /**
      * Display the user index for the application.
-     *
-     * @todo write phpunit test
-     * @todo build up the view.
      *
      * @return \Illuminate\View\View
      */

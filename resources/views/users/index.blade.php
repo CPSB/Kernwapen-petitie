@@ -44,7 +44,13 @@
                                         @foreach ($users as $user) {{-- Loop through the users --}}
                                             <tr>
                                                 <td><strong>#{{ $user->id }}</strong></td>
-                                                <td></td> {{-- TODO: Implement status indicater (active/ban) --}}
+                                                <td>
+                                                    @if ($user->isBanned()) {{-- User is banned --}}
+                                                        <label class="label label-danger"><i class="fa fa-ban"></i> Geblokkeerd</label>
+                                                    @else {{-- The user is active --}}
+                                                        <label class="label label-success"><i class="fa fa-check"></i> Actief</label>
+                                                    @endif
+                                                </td>
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->email }}</td>
                                                 <td>{{ $user->created_at->diffForHumans() }}</td>
