@@ -65,6 +65,7 @@ class UsersController extends Controller
      * @todo build up the validator.
      * @todo Implement mail notification to the created user
      * @todo write the phpunit test.
+     * @todo implement activity monitor.
      *
      * @param  Usersvalidator $input The user given input. (Validated)
      * @return \Illuminate\Http\RedirectResponse
@@ -74,7 +75,8 @@ class UsersController extends Controller
         $password = bcrypt(str_random(20));
         $input->merge(['password' => $password]);
 
-        if ($user = $this->usersRepository->create($input->except('_token'))) {
+        if ($user = $this->usersRepository->create($input->except(['_token', 'role']))) {
+            $user->roles()->attach($input->role); // Attach the given roles to the user.
             flash("Er is een login voor {$user->name} aangemaakt in het systeem.")->success();
         }
 
@@ -101,7 +103,8 @@ class UsersController extends Controller
      * Update an user in the storage.
      *
      * @todo Create the validator.
-     * @todo wrtie phpunit test.
+     * @todo write phpunit test.
+     * @todo implement activity monitor
      *
      * @param UsersValidator $input The given user input. (Validated)
      * @param int            $user  The unique identifier in the storage
@@ -122,7 +125,7 @@ class UsersController extends Controller
     /**
      * Delete the user out of the system.
      *
-     * @todo write phpunit test
+     * @todo implement activity monitor.
      *
      * @param int $user The uniqie identifier in the storage.
      *

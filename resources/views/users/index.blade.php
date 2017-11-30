@@ -56,7 +56,7 @@
                                                 <td>{{ $user->created_at->diffForHumans() }}</td>
 
                                                 <td class="text-center"> {{-- Options --}}
-                                                    <a href="" class="text-muted">
+                                                    <a href="{{ route('users.edit', $user) }}" class="text-muted">
                                                         <i class="fa fa-fw fa-pencil"></i>
                                                     </a>
 

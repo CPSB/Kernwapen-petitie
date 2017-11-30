@@ -18,7 +18,11 @@ class UsersTest extends TestCase
      */
     public function deleteUserUnauthencated()
     {
-        //
+        $user = factory(User::class)->create();
+
+        $this->get(route('users.delete', $user))
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
     }
 
     /**
@@ -28,7 +32,15 @@ class UsersTest extends TestCase
      */
     public function deleteUserWrongId()
     {
-        //
+        $role = factory(Role::class)->create(['name' => 'admin']);
+        $user = factory(User::class, 2)->create();
+
+        $user[0]->assignRole($role->name); // attach permissions
+
+        $this->actingAs($user[0])
+            ->assertAuthenticatedAs($user[0])
+            ->get(route('users.delete', ['id' => 10000]))
+            ->assertStatus(404);
     }
 
     /**
@@ -38,7 +50,21 @@ class UsersTest extends TestCase
      */
     public function deleteUserCorrectId()
     {
-        //
+        $role = factory(Role::class)->create(['name' => 'admin']);
+        $user = factory(User::class, 2)->create();
+
+        $user[0]->assignRole($role->name); // Attachment user role
+
+        $this->actingAs($user[0])
+            ->assertAuthenticatedAs($user[0])
+            ->get(route('users.delete', $user[1]))
+            ->assertStatus(302)
+            ->assertSessionHas([
+                'flash_notification.0.message'  => "{$user[1]->name} is verwijderd als gebruiker uit het platform.",
+                'flash_notification.0.level'    => 'success'
+            ]);
+
+        $this->assertDatabaseMissing('users', ['id' => $user[1]->id]);
     }
 
     /**
@@ -48,7 +74,15 @@ class UsersTest extends TestCase
      */
     public function deleteUserDeleteUnauthorizedUser()
     {
-        //
+        $role = factory(Role::class)->create(['name' => 'user']);
+        $user = factory(User::class, 2)->create();
+
+        $user[0]->assignRole($role->name); // Attachment roles
+
+        $this->actingAs($user[0])
+            ->assertAuthenticatedAs($user[0])
+            ->get(route('users.delete', $user[1]))
+            ->assertStatus(403);
     }
 
     /**
