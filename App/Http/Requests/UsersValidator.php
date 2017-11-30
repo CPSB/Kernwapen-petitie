@@ -4,6 +4,11 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * Class UsersValidator
+ *
+ * @package App\Http\Requests
+ */
 class UsersValidator extends FormRequest
 {
     /**
@@ -13,7 +18,7 @@ class UsersValidator extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user()->hasRole('admin');
     }
 
     /**
@@ -24,7 +29,9 @@ class UsersValidator extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'  => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . auth()->user()->id,
+            'roles' => 'required',
         ];
     }
 }

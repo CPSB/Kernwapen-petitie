@@ -60,7 +60,6 @@ class UsersController extends Controller
     /**
      * Store the new user in the system.
      *
-     * @todo build up the validator.
      * @todo Implement mail notification to the created user
      * @todo write the phpunit test.
      * @todo implement activity monitor.
@@ -99,7 +98,6 @@ class UsersController extends Controller
     /**
      * Update an user in the storage.
      *
-     * @todo Create the validator.
      * @todo write phpunit test.
      * @todo implement activity monitor
      *
