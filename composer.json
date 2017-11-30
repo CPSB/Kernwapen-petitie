@@ -8,6 +8,7 @@
         "php": ">=7.0.0",
         "activismebe/database-layering": "^0.29.0",
         "activismebe/laravel-form-helpers": "^1.2",
+        "cybercog/laravel-ban": "^3.0",
         "fideloper/proxy": "~3.3",
         "laracasts/flash": "^3.0",
         "laravel/framework": "5.5.*",
@@ -25,7 +26,8 @@
         "laravel/homestead": "^6.5",
         "mockery/mockery": "0.9.*",
         "nunomaduro/collision": "^1.1",
-        "phpunit/phpunit": "~6.0"
+        "phpunit/phpunit": "~6.0",
+        "wnx/laravel-stats": "^1.3"
     },
     "autoload": {
         "classmap": [

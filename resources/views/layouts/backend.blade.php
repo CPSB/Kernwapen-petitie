@@ -58,6 +58,24 @@
                                     <i class="fa fa-list"></i> Organisaties
                                 </a>
                             </li>
+
+                            <li @if (Request::is('logs*')) class="active" @endif>
+                                <a href="">
+                                    <i class="fa fa-list"></i> Logs
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="">
+                                    <i class="fa fa-home"></i> Stadsmonitor
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="">
+                                    <i class="fa fa-newspaper-o"></i> Nieuws
+                                </a>
+                            </li>
                         @endif
                     </ul>
 

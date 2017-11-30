@@ -47,7 +47,7 @@ class SupportController extends Controller
      *
      * @todo register the route
      * @todo write phpunit test
-     * 
+     *
      * @return \Illuminate\View\View
      */
     public function create()
