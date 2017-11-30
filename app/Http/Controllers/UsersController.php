@@ -24,8 +24,6 @@ class UsersController extends Controller
     /**
      * UsersController constructor
      *
-     * @todo register admin middleware.
-     *
      * @param RoleRepository  $roleRepository  The abstraction layer between database and controller. 
      * @param UsersRepository $usersRepository The abstraction layer between database and controller.
      *
