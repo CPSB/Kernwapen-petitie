@@ -66,6 +66,10 @@ class UsersTableSeeder extends Seeder
                 $this->createUser($role); // Create the user in the database.
             } // ENDIF role
         } // ENDIF Create roles
+
+        // Run additional seeders
+        $this->call(CitiesTableSeeder::class);
+
     } // END run function
 
     /**
