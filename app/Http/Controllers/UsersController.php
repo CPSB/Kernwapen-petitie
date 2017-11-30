@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UsersValidator;
 use App\Repositories\UsersRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
@@ -46,8 +47,7 @@ class UsersController extends Controller
     /**
      * The create view for a newly user.
      *
-     * @todo implement controller logic.
-     * @todo build up the view.
+     * @todo build up the view. -> In progress
      * @todo Write the phpunit test
      *
      * @return \Illuminate\View\View
