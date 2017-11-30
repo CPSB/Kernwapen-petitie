@@ -38,6 +38,10 @@ class FaqController extends Controller
     /**
      * [FRONT-END]: The index page for the fag points.
      *
+     * @todo build up the view
+     * @todo build up the route
+     * @todo write phpunit test
+     *
      * @return \Illuminate\View\View
      */
     public function index(): View
