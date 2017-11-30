@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UsersValidator;
 use App\Repositories\UsersRepository;
+use App\Repositories\RoleRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
@@ -18,19 +19,23 @@ use Illuminate\View\View;
 class UsersController extends Controller
 {
     private $usersRepository; /** @var UsersRepository $usersRepository */
+    private $roleRepository;  /** @var RoleRepository  $roleRepository  */
 
     /**
      * UsersController constructor
      *
      * @todo register admin middleware.
      *
+     * @param RoleRepository  $roleRepository  The abstraction layer between database and controller. 
      * @param UsersRepository $usersRepository The abstraction layer between database and controller.
      *
      * @return void
      */
-    public function __construct(UsersRepository $usersRepository)
+    public function __construct(UsersRepository $usersRepository, RoleRepository $roleRepository)
     {
         $this->middleware(['auth', 'role:admin']);
+
+        $this->roleRepository  = $roleRepository;
         $this->usersRepository = $usersRepository;
     }
 
@@ -47,14 +52,11 @@ class UsersController extends Controller
     /**
      * The create view for a newly user.
      *
-     * @todo build up the view. -> In progress
-     * @todo Write the phpunit test
-     *
      * @return \Illuminate\View\View
      */
     public function create(): View
     {
-        return view('users.create');
+        return view('users.create', ['roles' => $this->roleRepository->all()]);
     }
 
     /**

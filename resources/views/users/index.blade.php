@@ -17,7 +17,7 @@
                                 </a>
                             @endif
 
-                            <a class="btn btn-default btn-xs" href="">
+                            <a class="btn btn-default btn-xs" href="{{ route('users.create') }}">
                                 <i class="fa fa-user-plus"></i> Gebruiker toevoegen.
                             </a>
                         </div>

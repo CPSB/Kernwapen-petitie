@@ -178,7 +178,7 @@ class UsersTest extends TestCase
      */
     public function usersCreateViewUnAuthenticated()
     {
-        //
+        $this->get(route('users.create'))->assertStatus(302)->assertRedirect(route('login'));
     }
 
     /**
@@ -188,7 +188,15 @@ class UsersTest extends TestCase
      */
     public function usersCreateViewWrongPermissions()
     {
-        //
+        $role = factory(Role::class)->create(['name' => 'user']);
+        $user = factory(User::class)->create();
+
+        $user->assignRole($role->name); // Role attachment
+
+        $this->actingAs($user)
+            ->assertAuthenticatedAs($user)
+            ->get(route('users.create'))
+            ->assertStatus(403);
     }
 
     /**
@@ -198,7 +206,15 @@ class UsersTest extends TestCase
      */
     public function usersCreateViewOk()
     {
-        //
+        $role = factory(Role::class)->create(['name' => 'admin']);
+        $user = factory(User::class)->create();
+
+        $user->assignRole($role->name); // Role attachment.
+
+        $this->actingAs($user)
+            ->assertAuthenticatedAs($user)
+            ->get(route('users.create'))
+            ->assertStatus(200);
     }
 
     /**
