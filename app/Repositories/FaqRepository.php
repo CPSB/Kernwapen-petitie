@@ -2,9 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Faq;
-use ActivismeBE\DatabaseLayering\Repositories\Contracts\RepositoryInterface;
 use ActivismeBE\DatabaseLayering\Repositories\Eloquent\Repository;
+use App\Faq;
 
 /**
  * Class FaqRepository

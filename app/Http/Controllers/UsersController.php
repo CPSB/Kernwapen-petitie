@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UsersValidator;
-use App\Repositories\UsersRepository;
 use App\Repositories\RoleRepository;
+use App\Repositories\UsersRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
@@ -24,7 +24,7 @@ class UsersController extends Controller
     /**
      * UsersController constructor
      *
-     * @param RoleRepository  $roleRepository  The abstraction layer between database and controller. 
+     * @param RoleRepository  $roleRepository  The abstraction layer between database and controller.
      * @param UsersRepository $usersRepository The abstraction layer between database and controller.
      *
      * @return void
