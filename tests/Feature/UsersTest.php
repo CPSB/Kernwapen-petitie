@@ -14,7 +14,7 @@ class UsersTest extends TestCase
     /**
      * @test
      * @testdox     Test delete user access when the user in unauthenticated.
-     * @covers      \App\Http\Controllers\UserController::destroy()
+     * @covers      \App\Http\Controllers\UsersController::destroy()
      */
     public function deleteUserUnauthencated()
     {
@@ -28,7 +28,7 @@ class UsersTest extends TestCase
     /**
      * @test
      * @testdox    Test the response if we try to delete a user with an invalid id.
-     * @covers     \App\Http\Controllers\UserController::destroy()
+     * @covers     \App\Http\Controllers\UsersController::destroy()
      */
     public function deleteUserWrongId()
     {
@@ -46,7 +46,7 @@ class UsersTest extends TestCase
     /**
      * @test
      * @testdox Test if we can delete a user with the correct id and permissions
-     * @covers  \App\Http\Controllers\UserController::destroy()
+     * @covers  \App\Http\Controllers\UsersController::destroy()
      */
     public function deleteUserCorrectId()
     {
@@ -162,7 +162,8 @@ class UsersTest extends TestCase
      */
     public function editViewUserWrongPermissions()
     {
-        //
+        $role = factory(Role::class)->create(['name' => 'user']);
+        $user = factory(User::class)->create();
     }
 
     /**
