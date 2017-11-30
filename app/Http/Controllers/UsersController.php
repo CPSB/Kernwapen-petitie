@@ -99,7 +99,6 @@ class UsersController extends Controller
      * Update an user in the storage.
      *
      * @todo implement method for sync the acl roles.
-     * @todo write phpunit test.
      * @todo implement activity monitor
      *
      * @param UsersValidator $input The given user input. (Validated)
