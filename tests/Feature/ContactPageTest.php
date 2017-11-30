@@ -12,7 +12,9 @@ class ContactPageTest extends TestCase
     /**
      * @test
      * @testdox Test the contact front-end page
+     *
      * @covers  \App\Http\Controllers\ContactController::index()
+     * @covers  \App\Http\Controllers\ContactController::__construct()
      */
     public function frontendContactPage()
     {
@@ -22,7 +24,9 @@ class ContactPageTest extends TestCase
     /**
      * @test
      * @testdox Test if the validation return from the controller.
+     *
      * @covers  \App\Http\Controllers\ContactController::store()
+     * @covers  \App\Http\Controllers\ContactController::__construct()
      */
     public function contactStoreValidationErrors()
     {
@@ -38,7 +42,9 @@ class ContactPageTest extends TestCase
     /**
      * @test
      * @testdox Test if the contact message can be stored in the database.
+     *
      * @covers  \App\Http\Controllers\ContactController::store()
+     * @covers  \App\Http\Controllers\ContactController::__construct()
      */
     public function contactStoreOk()
     {

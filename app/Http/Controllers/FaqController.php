@@ -25,11 +25,11 @@ class FaqController extends Controller
      * @todo Register the language middleware. (Index)
      * @todo Register the correct acl middleware. 
      * 
-     * @param FaqRepository $fagRepository The abstraction layer between database and controller. 
+     * @param FaqRepository $faqRepository The abstraction layer between database and controller.
      * 
      * @return void
      */
-    public function __construct(FaqRepository $fagRepository) 
+    public function __construct(FaqRepository $faqRepository)
     {
         $this->middleware(['auth'])->except(['index']);
         $this->faqRepository = $faqRepository; 
@@ -74,7 +74,7 @@ class FaqController extends Controller
         $input->merge(['author_id' => auth()->user()->id]); 
 
         if ($faq = $this->faqRepository->create($input->except('_token'))) {
-            flash("{$fag->title} is opgeslagen in het systeem.")->success();
+            flash("{$faq->title} is opgeslagen in het systeem.")->success();
         }
 
         return redirect()->route('faq.index');
@@ -115,7 +115,7 @@ class FaqController extends Controller
         $faq = $this->faqRepository->find($item) ?: abort(Response::HTTP_NOT_FOUND);
 
         if ($faq->update($input->except('_token'))) {
-            flash("{$fag->title} is aangepast in het systeem."); 
+            flash("{$faq->title} is aangepast in het systeem.");
         }
 
         return redirect()->route('faq.index');
@@ -135,7 +135,7 @@ class FaqController extends Controller
     {
         $faq = $this->faqRepository->find($item) ?: abort(Response::HTTP_NOT_FOUND); 
 
-        if ($item = faq->delete()) {
+        if ($item = $faq->delete()) {
             flash("{$item->title} is verwijderd uit het systeem.")->success();
         }
 
