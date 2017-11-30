@@ -87,7 +87,6 @@ class UsersController extends Controller
      * Edit view for s apcific user.
      *
      * @todo build up the view.
-     * @todo write phpunit test.
      *
      * @param int $user The unique identifier in the storage
      *

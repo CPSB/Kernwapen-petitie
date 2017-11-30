@@ -137,12 +137,20 @@ class UsersTest extends TestCase
 
     /**
      * @test
-     * @testdox Test the response when we successfull access the view.
+     * @testdox Test the response when we successful access the view.
      * @covers  \App\Http\Controllers\UsersController::edit()
      */
     public function editViewUserOk()
     {
-        //
+        $role = factory(Role::class)->create(['name' => 'admin']);
+        $user = factory(User::class, 2)->create();
+
+        $user[0]->assignRole($role->name); // Role attachment.
+
+        $this->actingAs($user[0])
+            ->assertAuthenticatedAs($user[0])
+            ->get(route('users.edit', $user[1]))
+            ->assertStatus(200);
     }
 
     /**
@@ -152,7 +160,8 @@ class UsersTest extends TestCase
      */
     public function editViewUserUnauthenticated()
     {
-        //
+        $user = factory(User::class)->create();
+        $this->get(route('users.edit', $user))->assertStatus(302)->assertRedirect(route('login'));
     }
 
     /**
@@ -163,7 +172,14 @@ class UsersTest extends TestCase
     public function editViewUserWrongPermissions()
     {
         $role = factory(Role::class)->create(['name' => 'user']);
-        $user = factory(User::class)->create();
+        $user = factory(User::class, 2)->create();
+
+        $user[0]->assignRole($role->name); // Role attachment
+
+        $this->actingAs($user[0])
+            ->assertAuthenticatedAs($user[0])
+            ->get(route('users.edit', $user[1]))
+            ->assertStatus(403);
     }
 
     /**
