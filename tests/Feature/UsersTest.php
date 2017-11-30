@@ -92,7 +92,14 @@ class UsersTest extends TestCase
      */
     public function editUserUnauthenticated()
     {
-        //
+        $user = factory(User::class)->create();
+        $role = factory(Role::class)->create();
+
+        $input = ['name' => 'John Doe', 'email' => 'name@domain.tld', 'role' => $role->id];
+
+        $this->post(route('users.update', $user), $input)
+            ->assertStatus(302)
+            ->assertRedirect(route('login'));
     }
 
     /**
@@ -102,7 +109,15 @@ class UsersTest extends TestCase
      */
     public function editUserWrongId()
     {
-        //
+        $role = factory(Role::class)->create(['name' => 'admin']);
+        $user = factory(User::class)->create()->assignRole($role->name);
+
+        $input = ['name' => 'John Doe', 'email' => 'name@domain.tld', 'role' => $role->id];
+
+        $this->actingAs($user)
+            ->assertAuthenticatedAs($user)
+            ->post(route('users.update', ['id' => 100000]), $input)
+            ->assertStatus(404);
     }
 
     /**
@@ -112,17 +127,36 @@ class UsersTest extends TestCase
      */
     public function editUserUnauthorized()
     {
-        //
+        $role = factory(Role::class)->create(['name' => 'user']);
+        $user = factory(User::class)->create()->assignRole($role->name);
+
+        $input = ['name' => 'John Doe', 'email' => 'name@domain.tld', 'role' => $role->id];
+
+        $this->actingAs($user)
+            ->assertAuthenticatedAs($user)
+            ->post(route('users.update', $user), $input)
+            ->assertStatus(403);
     }
 
     /**
      * @test
-     * @testdox Test if we can successfull edit some given user.
+     * @testdox Test if we can successful edit some given user.
      * @covers  \App\Http\Controllers\UsersController::update()
      */
     public function editUserOk()
     {
-        //
+        $role = factory(Role::class)->create(['name' => 'admin']);
+        $user = factory(User::class, 2)->create();
+
+        $user[0]->assignRole(['name' => $role->name]); // Role attachment
+
+        $input = ['name' => 'John Doe', 'email' => 'name@domain.tld', 'role' => $role->id];
+
+        $this->actingAs($user[0])
+            ->assertAuthenticatedAs($user[0])
+            ->post(route('users.update', $user[1]), $input)
+            ->assertStatus(302)
+            ->assertSessionHas(['flash_notification.0.level' => 'success']);
     }
 
     /**
@@ -130,9 +164,15 @@ class UsersTest extends TestCase
      * @testdox Test if the validation errors return from the controller.
      * @covers  \App\Http\Controllers\UsersController::update()
      */
-    public function editUserValidationError()
+    public function editUserValidationErrors()
     {
-        //
+        $role = factory(Role::class)->create(['name' => 'admin']);
+        $user = factory(User::class)->create()->assignRole($role->name);
+
+        $this->actingAs($user)
+            ->post(route('users.update', $user), [])
+            ->assertStatus(302)
+            ->assertSessionHasErrors();
     }
 
     /**

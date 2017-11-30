@@ -98,6 +98,7 @@ class UsersController extends Controller
     /**
      * Update an user in the storage.
      *
+     * @todo implement method for sync the acl roles.
      * @todo write phpunit test.
      * @todo implement activity monitor
      *
@@ -110,7 +111,7 @@ class UsersController extends Controller
     {
         $user = $this->usersRepository->find($user) ?: abort(Response::HTTP_NOT_FOUND);
 
-        if ($user->update($input->except('_token'))) {
+        if ($user->update($input->except(['_token', 'role']))) {
             flash("{$user->name} is aangepast in het systeem.")->success();
         }
 
