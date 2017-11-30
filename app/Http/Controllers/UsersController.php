@@ -67,7 +67,7 @@ class UsersController extends Controller
      * @param  Usersvalidator $input The user given input. (Validated)
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Usersvalidator $input): RedirectResponse
+    public function store(UsersValidator $input): RedirectResponse
     {
         $password = bcrypt(str_random(20));
         $input->merge(['password' => $password]);
