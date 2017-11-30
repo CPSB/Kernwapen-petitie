@@ -64,7 +64,7 @@ class UsersController extends Controller
      * @todo write the phpunit test.
      * @todo implement activity monitor.
      *
-     * @param  Usersvalidator $input The user given input. (Validated)
+     * @param  UsersValidator $input The user given input. (Validated)
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(UsersValidator $input): RedirectResponse
