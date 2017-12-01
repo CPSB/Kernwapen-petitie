@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\CityRepository;
 use App\Repositories\SignatureRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -50,11 +51,20 @@ class SignatureController extends Controller
      * @todo Connect store method to the form (view).
      * @todo Write phpunit test
      *
+     * @param  CityRepository $cityRepository Abstraction layer between database and controller.
      * @return \Illuminate\View\View
      */
-    public function create(): View
+    public function create(CityRepository $cityRepository): View
     {
-        return view('signature.create');
+        $postal = [];
+
+        foreach($cityRepository->all() as $city) {
+            array_push($postal, [
+                'id' => $city->id, 'name' => (string) $city->postal . ' - ' . $city->name . ', ' . $city->province
+            ]);
+        }
+
+        return view('signature.create', ['postal' => json_encode($postal)]);
     }
 
     /**
