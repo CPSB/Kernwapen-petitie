@@ -46,13 +46,8 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-3 @error('postal_code', 'has-error')">
-                <input type="text" class="form-control" placeholder="Stadsnaam" @error('postal_code')>
-                @error('postal_code')
-            </div>
-
-            <div class="col-md-7 @error('city_name', 'has-error')">
-                <input type="text" class="form-control" placeholder="Stadsnaam" @error('city_name')>
+            <div class="col-md-offset-2 col-md-10 @error('city_name', 'has-error')">
+                <input type="text" class="form-control typeahead" autocomplete="off" id="postal" data-provide="typeahead" placeholder="Stadsnaam" @error('city_name')>
                 @error('city_name')
             </div>
         </div>
@@ -70,3 +65,11 @@
         </div>
     </form>
 @endsection
+
+@push('scripts')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.js"></script>
+    <script>
+        var $inputPostal = $("#postal");
+        $inputPostal.typeahead({ source: {!!  $postal !!} /* TODO: Look for curl request. */, autoSelect: true, afterSelect: $inputPostal.noop});
+    </script>
+@endpush

@@ -2,15 +2,16 @@
 
 namespace App\Repositories;
 
+use App\City;
+use ActivismeBE\DatabaseLayering\Repositories\Contracts\RepositoryInterface;
 use ActivismeBE\DatabaseLayering\Repositories\Eloquent\Repository;
-use App\Faq;
 
 /**
- * Class FaqRepository
+ * Class CityRepository
  *
  * @package App\Repositories
  */
-class FaqRepository extends Repository
+class CityRepository extends Repository
 {
     /**
      * Set the eloquent model class for the repository.
@@ -19,6 +20,6 @@ class FaqRepository extends Repository
      */
     public function model()
     {
-        return Faq::class;
+        return City::class;
     }
 }

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\FaqRepository;
 use App\Http\Requests\FaqValidator;
+use App\Repositories\FaqRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
@@ -23,16 +23,16 @@ class FaqController extends Controller
      * FaqController constructor
      *
      * @todo Register the language middleware. (Index)
-     * @todo Register the correct acl middleware. 
-     * 
-     * @param FaqRepository $fagRepository The abstraction layer between database and controller. 
-     * 
+     * @todo Register the correct acl middleware.
+     *
+     * @param FaqRepository $faqRepository The abstraction layer between database and controller.
+     *
      * @return void
      */
-    public function __construct(FaqRepository $fagRepository) 
+    public function __construct(FaqRepository $faqRepository)
     {
         $this->middleware(['auth'])->except(['index']);
-        $this->faqRepository = $faqRepository; 
+        $this->faqRepository = $faqRepository;
     }
 
     /**
@@ -46,49 +46,49 @@ class FaqController extends Controller
     }
 
     /**
-     * The create view for an new faq item. 
-     * 
-     * @todo wrtie phpunit test 
+     * The create view for an new faq item.
+     *
+     * @todo wrtie phpunit test
      * @todo register the route.
      *
      * @return \Illuminate\View\View
      */
-    public function create(): View 
+    public function create(): View
     {
         return view('faqs.create');
     }
 
     /**
-     * Store a new faq item in the storage. 
+     * Store a new faq item in the storage.
      *
-     * @todo register the validator 
+     * @todo register the validator
      * @todo write phpunit test
      * @todo register the route
-     * 
+     *
      * @param FaqValidator $input The given user input instance. (Validated)
-     * 
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(FaqValidator $input): RedirectResponse
     {
-        $input->merge(['author_id' => auth()->user()->id]); 
+        $input->merge(['author_id' => auth()->user()->id]);
 
         if ($faq = $this->faqRepository->create($input->except('_token'))) {
-            flash("{$fag->title} is opgeslagen in het systeem.")->success();
+            flash("{$faq->title} is opgeslagen in het systeem.")->success();
         }
 
         return redirect()->route('faq.index');
     }
 
     /**
-     * Edit view for an faq item. 
+     * Edit view for an faq item.
      *
-     * @todo build up the view 
+     * @todo build up the view
      * @todo register the route
      * @todo write phpunit test
-     * 
+     *
      * @param int $item The unique identifier in the storage.
-     *  
+     *
      * @return \Illuminate\View\View
      */
     public function edit($item): View
@@ -99,43 +99,43 @@ class FaqController extends Controller
     }
 
     /**
-     * Update an faq item in the system. 
+     * Update an faq item in the system.
      *
      * @todo build up the validator
      * @todo register route
      * @todo write phpunit test
-     * 
-     * @param FaqValidator  $input  The user given input (validated). 
+     *
+     * @param FaqValidator  $input  The user given input (validated).
      * @param int           $item   The unique identifier in the storage
-     * 
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(FaqValidator $input, $item): RedirectResponse 
+    public function update(FaqValidator $input, $item): RedirectResponse
     {
         $faq = $this->faqRepository->find($item) ?: abort(Response::HTTP_NOT_FOUND);
 
         if ($faq->update($input->except('_token'))) {
-            flash("{$fag->title} is aangepast in het systeem."); 
+            flash("{$faq->title} is aangepast in het systeem.");
         }
 
         return redirect()->route('faq.index');
     }
 
     /**
-     * Delete a faq item out of the storage. 
+     * Delete a faq item out of the storage.
      *
      * @todo register route
      * @todo build up the phpunit test
-     * 
+     *
      * @param int $item The unique identifier in the storage
-     * 
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($item): RedirectResponse
     {
-        $faq = $this->faqRepository->find($item) ?: abort(Response::HTTP_NOT_FOUND); 
+        $faq = $this->faqRepository->find($item) ?: abort(Response::HTTP_NOT_FOUND);
 
-        if ($item = faq->delete()) {
+        if ($item = $faq->delete()) {
             flash("{$item->title} is verwijderd uit het systeem.")->success();
         }
 

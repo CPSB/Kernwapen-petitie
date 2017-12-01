@@ -42,8 +42,8 @@
                                 <li role="presentation" @if (Request::is('contact*')) class="active" @endif>
                                     <a href="{{ route('contact.index') }}">Contact</a>
                                 </li>
-                                <li role="presentation">
-                                    <a href="faq.html">FAQ</a>
+                                <li role="presentation" @if (Request::is('faq*')) class="active" @endif>
+                                    <a href="{{ route('faq.index') }}">FAQ</a>
                                 </li>
                                 <li role="presentation" @if (Request::is('disclaimer*')) class="active" @endif>
                                     <a href="{{ route('disclaimer.index') }}">Disclaimer</a>
@@ -76,5 +76,6 @@
 
          {{-- Scripts --}}
         <script src="{{ asset('js/app.js') }}"></script>
+        @stack('scripts')
     </body>
 </html>

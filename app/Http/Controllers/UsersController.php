@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UsersValidator;
-use App\Repositories\UsersRepository;
 use App\Repositories\RoleRepository;
+use App\Repositories\UsersRepository;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
@@ -24,7 +24,7 @@ class UsersController extends Controller
     /**
      * UsersController constructor
      *
-     * @param RoleRepository  $roleRepository  The abstraction layer between database and controller. 
+     * @param RoleRepository  $roleRepository  The abstraction layer between database and controller.
      * @param UsersRepository $usersRepository The abstraction layer between database and controller.
      *
      * @return void
@@ -64,10 +64,10 @@ class UsersController extends Controller
      * @todo write the phpunit test.
      * @todo implement activity monitor.
      *
-     * @param  Usersvalidator $input The user given input. (Validated)
+     * @param  UsersValidator $input The user given input. (Validated)
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Usersvalidator $input): RedirectResponse
+    public function store(UsersValidator $input): RedirectResponse
     {
         $password = bcrypt(str_random(20));
         $input->merge(['password' => $password]);
@@ -122,7 +122,7 @@ class UsersController extends Controller
      *
      * @todo implement activity monitor.
      *
-     * @param int $user The uniqie identifier in the storage.
+     * @param int $user The unique identifier in the storage.
      *
      * @return \Illuminate\Http\RedirectResponse
      */
