@@ -58,11 +58,11 @@
 
             <div class="col-md-3"> {{-- Sidebar --}}
                 <div class="well well-sm"> {{-- Search form --}}
-                    <form method="POST" action="">
-                        <div class="input-group">
-                            <input type="text" name="term" class="form-control" placeholder="Zoek stad">
+                    <form method="GET" action="{{ route('city-monitor.search') }}">
+                        <div class="input-group @error('term', 'has-error')">
+                            <input type="text" @input('term') class="form-control" placeholder="Zoek stad">
                             <span class="input-group-btn">
-                                <button class="btn btn-success" type="button">
+                                <button class="btn btn-success" type="submit">
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
                             </span>
