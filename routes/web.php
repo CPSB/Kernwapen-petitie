@@ -27,6 +27,10 @@ Route::get('/sign', 'SignatureController@create')->name('signature.create');
 // Support routes
 Route::get('support', 'SupportController@index')->name('support.index');
 
+// City monitor.
+Route::get('/stadsmonitor', 'CityMonitorController@index')->name('city-monitor.index');
+Route::get('/stadsmonitor/zoek', 'CityMonitorController@search')->name('city-monitor.search');
+
 // User Routes
 Route::get('/users/index', 'UsersController@index')->name('users.index');
 Route::get('/users/edit/{id}', 'UsersController@edit')->name('users.edit');

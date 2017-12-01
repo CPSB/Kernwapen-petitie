@@ -65,8 +65,8 @@
                                 </a>
                             </li>
 
-                            <li>
-                                <a href="">
+                            <li @if (Request::is('stadsmonitor*')) class="active" @endif>
+                                <a href="{{ route('city-monitor.index') }}">
                                     <i class="fa fa-home"></i> Stadsmonitor
                                 </a>
                             </li>
@@ -120,5 +120,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @stack('scripts')
 </body>
 </html>
