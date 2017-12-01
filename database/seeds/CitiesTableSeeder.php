@@ -1,9 +1,9 @@
 <?php
 
 use App\Repositories\CityRepository;
+use Illuminate\Database\Seeder;
 use League\Csv\Reader;
 use League\Csv\Statement;
-use Illuminate\Database\Seeder;
 
 /**
  * Class CitiesTableSeeder

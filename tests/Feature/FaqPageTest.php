@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Faq;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 /**
  * @todo docblock

@@ -58,7 +58,7 @@ class SignatureController extends Controller
     {
         $postal = [];
 
-        foreach($cityRepository->all() as $city) {
+        foreach ($cityRepository->all() as $city) {
             array_push($postal, [
                 'id' => $city->id, 'name' => (string) $city->postal . ' - ' . $city->name . ', ' . $city->province
             ]);

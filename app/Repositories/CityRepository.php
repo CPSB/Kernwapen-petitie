@@ -2,9 +2,8 @@
 
 namespace App\Repositories;
 
-use App\City;
-use ActivismeBE\DatabaseLayering\Repositories\Contracts\RepositoryInterface;
 use ActivismeBE\DatabaseLayering\Repositories\Eloquent\Repository;
+use App\City;
 
 /**
  * Class CityRepository
