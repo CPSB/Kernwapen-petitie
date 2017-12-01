@@ -62,7 +62,7 @@ class UsersController extends Controller
      *
      * @todo Implement mail notification to the created user
      * @todo write the phpunit test.
-     * @todo implement activity monitor.
+     * @todo implement activity monitor test.
      *
      * @param  UsersValidator $input The user given input. (Validated)
      * @return \Illuminate\Http\RedirectResponse
@@ -75,6 +75,9 @@ class UsersController extends Controller
         if ($user = $this->usersRepository->create($input->except(['_token', 'role']))) {
             $user->roles()->attach($input->role); // Attach the given roles to the user.
             flash("Er is een login voor {$user->name} aangemaakt in het systeem.")->success();
+
+            activity('user-log')->performedOn($user)->causedBy(auth()->user())
+                ->log("Heeft {$user->name} toegevoegd in het systeem.");
         }
 
         return redirect()->route('users.index');
@@ -99,7 +102,7 @@ class UsersController extends Controller
      * Update an user in the storage.
      *
      * @todo implement method for sync the acl roles.
-     * @todo implement activity monitor
+     * @todo implement activity monitor test.
      *
      * @param UsersValidator $input The given user input. (Validated)
      * @param int            $user  The unique identifier in the storage
@@ -112,6 +115,9 @@ class UsersController extends Controller
 
         if ($user->update($input->except(['_token', 'role']))) {
             flash("{$user->name} is aangepast in het systeem.")->success();
+
+            activity('user-log')->performedOn($user)->causedBy(auth()->user())
+                ->log("Heeft de gebruiker {$user->name} aangepast in het systeem.");
         }
 
         return redirect()->route('users.index');
@@ -120,7 +126,7 @@ class UsersController extends Controller
     /**
      * Delete the user out of the system.
      *
-     * @todo implement activity monitor.
+     * @todo implement activity monitor test.
      *
      * @param int $user The unique identifier in the storage.
      *
@@ -132,6 +138,9 @@ class UsersController extends Controller
 
         if ($user->delete()) {
             flash("{$user->name} is verwijderd als gebruiker uit het platform.")->success();
+
+            activity('user-log')->performedOn($user)->causedBy(auth()->user())
+                ->log("Heeft de gebruiker {$user->name} uit het systeem verwijderd.");
         }
 
         return redirect()->route('users.index');
