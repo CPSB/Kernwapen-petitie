@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\CityRepository;
+use DB;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 /**
@@ -37,5 +39,21 @@ class CityMonitorController extends Controller
     public function index(): View
     {
         return view('city-monitor.index', ['cities' => $this->cityRepository->paginate(50)]);
+    }
+
+    /**
+     * Search for a specific city in the system.
+     *
+     * @param  Request $input   The instance for the given user input.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function search(Request $input): View
+    {
+        $input->validate(['term' => 'required']); // A seprated Form Request class is not needed for now.
+
+        return view('city-monitor.index', [
+            'cities' => $this->cityRepository->searchCityMontitor($input->term, 50)
+        ]);
     }
 }
