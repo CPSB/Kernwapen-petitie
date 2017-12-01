@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Repositories\CityRepository;
-use DB;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
