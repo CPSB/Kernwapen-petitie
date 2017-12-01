@@ -69,7 +69,6 @@ class UsersTableSeeder extends Seeder
 
         // Run additional seeders
         $this->call(CitiesTableSeeder::class);
-
     } // END run function
 
     /**
