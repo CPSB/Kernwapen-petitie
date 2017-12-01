@@ -55,4 +55,19 @@ class CityMonitorController extends Controller
             'cities' => $this->cityRepository->searchCityMontitor($input->term, 50)
         ]);
     }
+
+    /**
+     * The create view for an city event.
+     *
+     * @todo Build up the view
+     * @todo write test
+     * @todo write phpunit test.
+     * @todo implement activity test
+     *
+     * @return \Illuminate\Contracts\View\Factory|View
+     */
+    public function createCityEvent(): View
+    {
+        return view();
+    }
 }
