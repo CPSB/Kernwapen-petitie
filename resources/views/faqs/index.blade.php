@@ -8,7 +8,7 @@
                     <div class="panel-heading" role="tab" id="headingThree">
                         <h4 class="panel-title">
                             <i class="fa fa-question-circle"></i>
-                            
+
                             <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ $faq->id }}" aria-expanded="false" aria-controls="collapse{{ $faq->id }}">
                                 {{ $faq->question }}
                             </a>
