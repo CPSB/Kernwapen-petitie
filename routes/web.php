@@ -35,6 +35,9 @@ Route::get('/users/create', 'UsersController@create')->name('users.create');
 Route::post('/users/store', 'UsersController@store')->name('users.store');
 Route::post('/users/update/{id}', 'UsersController@update')->name('users.update');
 
+// Faq routes
+Route::get('faqs', 'FaqController@index')->name('faq.index');
+
 // Account setting routes
 Route::get('/settings/{type?}', 'AccountSettingsController@index')->name('account.settings');
 Route::post('/settings/update/information', 'AccountSettingsController@updateInformation')->name('account.settings.info');
